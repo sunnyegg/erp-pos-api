@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -r dotenv/config app.js"
+    "start": "nodemon -r dotenv/config app.js",
+    "test": "mocha"
   },
   "keywords": [],
   "author": "adila",
@@ -21,5 +22,6 @@
     "mysql": "^2.17.1",
     "nodemon": "^1.19.4",
     "path": "^0.12.7"
-  }
+  },
+  "devDependencies": {}
 }

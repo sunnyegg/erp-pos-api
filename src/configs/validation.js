@@ -3,7 +3,7 @@ const Joi = require("@hapi/joi");
 
 // Schemas
 module.exports = {
-  user: Joi.object({
+  user_register: Joi.object({
     user_name: Joi.string()
       .alphanum()
       .min(3)
@@ -15,6 +15,17 @@ module.exports = {
       .required(),
     user_type: Joi.number()
       .max(1)
+      .required()
+  }),
+  user_login: Joi.object({
+    user_name: Joi.string()
+      .alphanum()
+      .min(3)
+      .max(30)
+      .required(),
+    user_password: Joi.string()
+      .min(5)
+      .max(15)
       .required()
   }),
   menu: Joi.object({

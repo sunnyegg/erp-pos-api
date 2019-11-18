@@ -6,7 +6,7 @@ module.exports = {
   getUsers: () => {
     return new Promise((resolve, reject) => {
       conn.query(
-        "SELECT user_id, user_name, user_type, user_created, user_login, user_status FROM users",
+        "SELECT users.user_id, users.user_name, users.user_type, users.user_created, users.user_login, users_status.status_name AS status FROM users INNER JOIN users_status ON users.user_status = users_status.status_id",
         (err, result) => {
           if (!err) {
             resolve(result);

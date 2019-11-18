@@ -33,12 +33,12 @@ module.exports = {
   },
   registerUser: (req, res) => {
     const register = {
-      user_name: req.body,
-      user_password: req.body,
-      user_type: req.body
+      user_name: req.body.user_name,
+      user_password: req.body.user_password,
+      user_type: req.body.user_type
     };
 
-    const validation = schema.user.validate(register);
+    const validation = schema.user_register.validate(register);
 
     if (validation.error) {
       res.status(400).json({
@@ -76,11 +76,11 @@ module.exports = {
   },
   loginUser: (req, res) => {
     const login = {
-      user_name: req.body,
-      user_password: req.body
+      user_name: req.body.user_name,
+      user_password: req.body.user_password
     };
 
-    const validation = schema.user.validate(login);
+    const validation = schema.user_login.validate(login);
 
     if (validation.error) {
       res.status(400).json({
@@ -89,7 +89,7 @@ module.exports = {
       });
     } else {
       userModel
-        .loginUser(login)
+        .loginUser(login.user_name)
         .then(user => {
           if (!user.length) {
             res.status(404).json({
@@ -128,13 +128,13 @@ module.exports = {
     }
   },
   updateUser: (req, res) => {
-    const id = parseInt(req.params);
+    const id = parseInt(req.params.id);
     const update = {
-      user_name: req.body,
-      user_password: req.body
+      user_name: req.body.user_name,
+      user_password: req.body.user_password
     };
 
-    const validation = schema.user.validate(update);
+    const validation = schema.user_login.validate(update);
 
     if (validation.error) {
       res.status(400).json({
@@ -178,7 +178,7 @@ module.exports = {
     }
   },
   deleteUser: (req, res) => {
-    const id = parseInt(req.params);
+    const id = parseInt(req.params.id);
 
     userModel
       .deleteUser(id)
