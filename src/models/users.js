@@ -6,7 +6,7 @@ module.exports = {
   getUsers: () => {
     return new Promise((resolve, reject) => {
       conn.query(
-        "SELECT users.user_id, users.user_name, users.user_type, users.user_created, users.user_login, users_status.status_name AS status FROM users INNER JOIN users_status ON users.user_status = users_status.status_id",
+        "SELECT users.user_id, users.user_name, users.user_type, users_type.type_name, users.user_created, users.user_login, users_status.status_name AS status FROM users INNER JOIN users_status ON users.user_status = users_status.status_id INNER JOIN users_type ON users.user_type = users_type.type_id",
         (err, result) => {
           if (!err) {
             resolve(result);
@@ -45,6 +45,17 @@ module.exports = {
           }
         }
       );
+    });
+  },
+  logoutUser: id => {
+    return new Promise((resolve, reject) => {
+      conn.query("UPDATE users SET user_status = 2 WHERE user_id = ?", id, (err, result) => {
+        if (!err) {
+          resolve(result);
+        } else {
+          reject(new Error(err));
+        }
+      });
     });
   },
   updateUser: (data, id) => {

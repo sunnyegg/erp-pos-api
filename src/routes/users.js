@@ -9,8 +9,8 @@ const usersController = require("../controllers/users");
 Route.get("/user", auth.ensureToken, usersController.getUsers);
 Route.put("/user/:id", auth.ensureToken, usersController.updateUser);
 Route.delete("/user/:id", auth.ensureToken, usersController.deleteUser);
-
 Route.post("/user/register", usersController.registerUser);
 Route.post("/user/login", usersController.loginUser);
+Route.post("/user/logout", auth.ensureToken, usersController.logoutUser);
 
 module.exports = Route;

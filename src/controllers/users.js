@@ -127,6 +127,33 @@ module.exports = {
         });
     }
   },
+  logoutUser: (req, res) => {
+    const id = parseInt(req.params.id);
+
+    userModel
+      .logoutUser(id)
+      .then(user => {
+        if (!user.affectedRows) {
+          res.status(404).json({
+            status: 404,
+            message: "There is no user with ID: " + id
+          });
+        } else {
+          res.status(200).json({
+            status: 200,
+            message: "Logout success!",
+            id: id
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        res.json({
+          status: 500,
+          message: "Logout failed!"
+        });
+      });
+  },
   updateUser: (req, res) => {
     const id = parseInt(req.params.id);
     const update = {
