@@ -49,7 +49,7 @@ module.exports = {
   },
   logoutUser: id => {
     return new Promise((resolve, reject) => {
-      conn.query("UPDATE users SET user_status = 2 WHERE user_id = ?", id, (err, result) => {
+      conn.query("UPDATE users SET user_status = 1 WHERE user_id = ?", id, (err, result) => {
         if (!err) {
           resolve(result);
         } else {
