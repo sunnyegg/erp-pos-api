@@ -31,7 +31,7 @@ module.exports = {
   loginUser: data => {
     return new Promise((resolve, reject) => {
       conn.query(
-        "SELECT user_id, user_name, user_password FROM users WHERE user_name = ?",
+        "SELECT user_id, user_type, user_name, user_password FROM users WHERE user_name = ?",
         data,
         (err, result) => {
           if (!err) {

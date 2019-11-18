@@ -4,13 +4,13 @@ const Route = express.Router();
 
 // Define
 const users = require("./routes/users");
-const customers = require("./routes/customers");
+const orders = require("./routes/orders");
 const menu = require("./routes/menu");
 const transactions = require("./routes/transactions");
 
 // Routes
 Route.use("/api", users);
-Route.use("/api", customers);
+Route.use("/api", orders);
 Route.use("/api", menu);
 Route.use("/api", transactions);
 

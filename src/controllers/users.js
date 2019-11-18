@@ -33,9 +33,9 @@ module.exports = {
   },
   registerUser: (req, res) => {
     const register = {
-      user_name: req.body.user_name,
-      user_password: req.body.user_password,
-      user_type: req.body.user_type
+      user_name: req.body,
+      user_password: req.body,
+      user_type: req.body
     };
 
     const validation = schema.user.validate(register);
@@ -76,8 +76,8 @@ module.exports = {
   },
   loginUser: (req, res) => {
     const login = {
-      user_name: req.body.user_name,
-      user_password: req.body.user_password
+      user_name: req.body,
+      user_password: req.body
     };
 
     const validation = schema.user.validate(login);
@@ -113,6 +113,7 @@ module.exports = {
                     status: 200,
                     message: "Login successful!",
                     id: user[0].user_id,
+                    user_type: user[0].user_type,
                     username: user[0].user_name,
                     token: token
                   });
@@ -127,10 +128,10 @@ module.exports = {
     }
   },
   updateUser: (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params);
     const update = {
-      user_name: req.body.user_name,
-      user_password: req.body.user_password
+      user_name: req.body,
+      user_password: req.body
     };
 
     const validation = schema.user.validate(update);
@@ -177,7 +178,7 @@ module.exports = {
     }
   },
   deleteUser: (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params);
 
     userModel
       .deleteUser(id)

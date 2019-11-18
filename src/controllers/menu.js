@@ -1,5 +1,6 @@
 // Import
 const menuModel = require("../models/menu");
+const schema = require("../configs/validation");
 
 // Controllers
 module.exports = {
@@ -64,22 +65,31 @@ module.exports = {
       menu_added_by: req.body
     };
 
-    menuModel
-      .addNewMenu(menu)
-      .then(() => {
-        res.status(200).json({
-          status: 200,
-          message: "New menu added successfully!",
-          data: menu
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json({
-          status: 500,
-          message: "Failed to add!"
-        });
+    const validation = schema.menu.validate(menu);
+
+    if (validation.error) {
+      res.status(400).json({
+        status: 400,
+        message: validation.error.details[0].message
       });
+    } else {
+      menuModel
+        .addNewMenu(menu)
+        .then(() => {
+          res.status(200).json({
+            status: 200,
+            message: "New menu added successfully!",
+            data: menu
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json({
+            status: 500,
+            message: "Failed to add!"
+          });
+        });
+    }
   },
   deleteMenu: (req, res) => {
     const id = parseInt(req.params);
