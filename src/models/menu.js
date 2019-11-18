@@ -43,6 +43,17 @@ module.exports = {
       });
     });
   },
+  editMenu: (data, id) => {
+    return new Promise((resolve, reject) => {
+      conn.query("UPDATE menu SET ? WHERE menu_id = ?", [data, id], (err, result) => {
+        if (!err) {
+          resolve(result);
+        } else {
+          reject(new Error(err));
+        }
+      });
+    });
+  },
   deleteMenu: id => {
     return new Promise((resolve, reject) => {
       conn.query("DELETE FROM menu WHERE menu_id = ?", id, (err, result) => {

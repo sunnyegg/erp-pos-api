@@ -62,7 +62,7 @@ module.exports = {
     };
 
     orderModel
-      .editOrder(edit)
+      .editOrder(edit, id)
       .then(order => {
         if (!order.affectedRows) {
           res.status(404).json({
@@ -93,7 +93,7 @@ module.exports = {
     };
 
     orderModel
-      .updateOrder(update)
+      .updateOrder(update, id)
       .then(order => {
         if (!order.affectedRows) {
           res.status(404).json({
