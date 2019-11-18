@@ -5,7 +5,8 @@ const schema = require("../configs/validation");
 // Controllers
 module.exports = {
   getMenu: (req, res) => {
-    menuModel.getMenu
+    menuModel
+      .getMenu()
       .then(menu => {
         if (!menu.length) {
           res.status(404).json({
@@ -29,7 +30,7 @@ module.exports = {
       });
   },
   getMenuById: (req, res) => {
-    const id = parseInt(req.params);
+    const id = parseInt(req.params.id);
 
     menuModel
       .getMenuById(id)
@@ -57,15 +58,16 @@ module.exports = {
   },
   addNewMenu: (req, res) => {
     const menu = {
-      menu_name: req.body,
-      menu_description: req.body,
-      menu_category: req.body,
-      menu_price: req.body,
-      menu_quantity: req.body,
-      menu_added_by: req.body
+      menu_name: req.body.menu_name,
+      menu_description: req.body.menu_description,
+      menu_category: req.body.menu_category,
+      menu_price: req.body.menu_price,
+      menu_quantity: req.body.menu_quantity,
+      menu_added_by: req.body.menu_added_by,
+      menu_updated_by: req.body.menu_added_by
     };
 
-    const validation = schema.menu.validate(menu);
+    const validation = schema.menu_add.validate(menu);
 
     if (validation.error) {
       res.status(400).json({
@@ -92,17 +94,17 @@ module.exports = {
     }
   },
   editMenu: (req, res) => {
-    const id = parseInt(req.params);
-    const menu = {
-      menu_name: req.body,
-      menu_description: req.body,
-      menu_category: req.body,
-      menu_price: req.body,
-      menu_quantity: req.body,
-      menu_added_by: req.body
+    const id = parseInt(req.params.id);
+    const edit = {
+      menu_name: req.body.menu_name,
+      menu_description: req.body.menu_description,
+      menu_category: req.body.menu_category,
+      menu_price: req.body.menu_price,
+      menu_quantity: req.body.menu_quantity,
+      menu_updated_by: req.body.menu_updated_by
     };
 
-    const validation = schema.menu.validate(menu);
+    const validation = schema.menu_edit.validate(edit);
 
     if (validation.error) {
       res.status(400).json({
@@ -111,7 +113,7 @@ module.exports = {
       });
     } else {
       menuModel
-        .editMenu(menu, id)
+        .editMenu(edit, id)
         .then(menu => {
           if (!menu.affectedRows) {
             res.status(404).json({
@@ -122,7 +124,7 @@ module.exports = {
             res.status(200).json({
               status: 200,
               message: "Menu edited successfully!",
-              data: menu
+              data: edit
             });
           }
         })
@@ -136,7 +138,7 @@ module.exports = {
     }
   },
   deleteMenu: (req, res) => {
-    const id = parseInt(req.params);
+    const id = parseInt(req.params.id);
 
     menuModel
       .deleteMenu(id)

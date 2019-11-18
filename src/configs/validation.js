@@ -14,7 +14,7 @@ module.exports = {
       .max(15)
       .required(),
     user_type: Joi.number()
-      .max(1)
+      .max(2)
       .required()
   }),
   user_login: Joi.object({
@@ -28,15 +28,41 @@ module.exports = {
       .max(15)
       .required()
   }),
-  menu: Joi.object({
+  menu_add: Joi.object({
     menu_name: Joi.string()
       .min(3)
       .max(30)
       .required(),
     menu_description: Joi.string()
       .min(5)
+      .allow("")
+      .optional(),
+    menu_category: Joi.number()
+      .max(10)
       .required(),
-    menu_price: Joi.number().required(),
-    menu_added_by: Joi.number().required()
+    menu_price: Joi.number()
+      .min(500)
+      .required(),
+    menu_quantity: Joi.number().required(),
+    menu_added_by: Joi.number().required(),
+    menu_updated_by: Joi.number().required()
+  }),
+  menu_edit: Joi.object({
+    menu_name: Joi.string()
+      .min(3)
+      .max(30)
+      .required(),
+    menu_description: Joi.string()
+      .min(5)
+      .allow("")
+      .optional(),
+    menu_category: Joi.number()
+      .max(10)
+      .required(),
+    menu_price: Joi.number()
+      .min(500)
+      .required(),
+    menu_quantity: Joi.number().required(),
+    menu_updated_by: Joi.number().required()
   })
 };
