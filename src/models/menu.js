@@ -3,10 +3,11 @@ const conn = require("../configs/db");
 
 // Models
 module.exports = {
-  getMenu: () => {
+  getMenu: search => {
     return new Promise((resolve, reject) => {
       conn.query(
-        "SELECT menu.menu_id, menu.menu_name, menu.menu_description, menu_category.category_name AS menu_category, menu.menu_price, menu.menu_quantity, menu_status.status_name AS status, menu.menu_date_added, users.user_name AS added_by, menu.menu_date_updated, users.user_name AS updated_by FROM menu INNER JOIN menu_category ON menu.menu_category = menu_category.category_id INNER JOIN menu_status ON menu.menu_status = menu_status.status_id INNER JOIN users ON menu.menu_added_by = users.user_id AND menu.menu_updated_by = users.user_id",
+        "SELECT menu.menu_id, menu.menu_name, menu.menu_description, menu_category.category_name AS menu_category, menu.menu_price, menu.menu_quantity, menu_status.status_name AS status, menu.menu_date_added, users.user_name AS added_by, menu.menu_date_updated, users.user_name AS updated_by FROM menu INNER JOIN menu_category ON menu.menu_category = menu_category.category_id INNER JOIN menu_status ON menu.menu_status = menu_status.status_id INNER JOIN users ON menu.menu_added_by = users.user_id AND menu.menu_updated_by = users.user_id WHERE menu.menu_name LIKE ?",
+        search,
         (err, result) => {
           if (!err) {
             resolve(result);

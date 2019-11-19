@@ -5,8 +5,14 @@ const schema = require("../configs/validation");
 // Controllers
 module.exports = {
   getMenu: (req, res) => {
+    if (req.query.search) {
+      var search = `%${req.query.search.toString()}%`;
+    } else {
+      var search = "%%";
+    }
+
     menuModel
-      .getMenu()
+      .getMenu(search)
       .then(menu => {
         if (!menu.length) {
           res.status(404).json({
