@@ -19,6 +19,7 @@ module.exports = {
           res.status(200).json({
             status: 200,
             message: "Get all users successfully!",
+            total: users.length,
             data: users
           });
         }
@@ -107,7 +108,7 @@ module.exports = {
               jwt.sign(
                 { username: login.user_name },
                 process.env.SECRET_KEY,
-                { expiresIn: "30m" },
+                { expiresIn: "4h" },
                 (err, token) => {
                   res.status(200).json({
                     status: 200,

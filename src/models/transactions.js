@@ -6,7 +6,7 @@ module.exports = {
   getTransactions: () => {
     return new Promise((resolve, reject) => {
       conn.query(
-        "SELECT transactions.transaction_id, orders.order_invoice, orders.order_table, menu.menu_name, menu_category.category_name, menu.menu_price, orders.order_quantity, orders.order_menu_added, users.user_name, orders_status.status_name, orders.order_menu_updated, users.user_name FROM transactions INNER JOIN orders ON transactions.transaction_order_id = orders.order_id INNER JOIN menu ON orders.order_menu_id = menu.menu_id INNER JOIN menu_category ON menu.menu_category = menu_category.category_id INNER JOIN users ON orders.order_added_by = users.user_id AND orders.order_updated_by = users.user_name INNER JOIN orders_status ON orders.order_menu_status = orders_status.status_id",
+        "SELECT transactions.transaction_id, customers.customer_name, orders.order_invoice, orders.order_table, menu.menu_name, orders.order_description, menu_category.category_name, menu.menu_price, orders.order_quantity, orders_status.status_name AS status, orders.order_menu_added, users.user_name AS added_by, orders.order_menu_updated, users.user_name AS updated_by FROM transactions INNER JOIN orders ON transactions.transaction_order_id = orders.order_id INNER JOIN customers ON orders.customer_id = customers.customer_id INNER JOIN menu ON orders.order_menu_id = menu.menu_id INNER JOIN menu_category ON menu.menu_category = menu_category.category_id INNER JOIN orders_status ON orders.order_menu_status = orders_status.status_id INNER JOIN users ON orders.order_added_by AND orders.order_updated_by = users.user_id",
         (err, result) => {
           if (!err) {
             resolve(result);

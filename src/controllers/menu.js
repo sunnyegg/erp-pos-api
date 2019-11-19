@@ -17,6 +17,7 @@ module.exports = {
           res.status(200).json({
             status: 200,
             message: "Get all menu successfully!",
+            total: menu.length,
             data: menu
           });
         }

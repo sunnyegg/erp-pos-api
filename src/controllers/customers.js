@@ -16,6 +16,7 @@ module.exports = {
           res.status(200).json({
             status: 200,
             message: "Get all customers successfully!",
+            total: customer.length,
             data: customer
           });
         }

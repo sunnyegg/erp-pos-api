@@ -16,6 +16,7 @@ module.exports = {
           res.status(200).json({
             status: 200,
             message: "Get all transactions successfully!",
+            total: transactions.length,
             data: transactions
           });
         }
@@ -30,7 +31,7 @@ module.exports = {
   },
   newTransaction: (req, res) => {
     const data = {
-      transaction_order_id: req.body
+      transaction_order_id: req.body.transaction_order_id
     };
 
     transactionModel
@@ -51,9 +52,9 @@ module.exports = {
       });
   },
   editTransaction: (req, res) => {
-    const id = parseInt(req.params);
+    const id = parseInt(req.params.id);
     const data = {
-      transaction_order_id: req.body
+      transaction_order_id: req.body.transaction_order_id
     };
 
     transactionModel
@@ -81,7 +82,7 @@ module.exports = {
       });
   },
   deleteTransaction: (req, res) => {
-    const id = parseInt(req.params);
+    const id = parseInt(req.params.id);
 
     transactionModel
       .deleteTransaction(id)

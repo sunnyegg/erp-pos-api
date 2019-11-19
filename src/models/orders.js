@@ -129,8 +129,8 @@ module.exports = {
                             ]);
 
                             conn.query(
-                              "UPDATE orders SET ? WHERE order_id = ?",
-                              [data, id],
+                              "UPDATE orders SET order_menu_updated = CURRENT_TIMESTAMP, order_menu_status = ?, order_updated_by = ? WHERE order_id = ?",
+                              [data.order_menu_status, data.order_updated_by, id],
                               (err, result) => {
                                 if (!err) {
                                   resolve(result);
