@@ -64,5 +64,24 @@ module.exports = {
       .required(),
     menu_quantity: Joi.number().required(),
     menu_updated_by: Joi.number().required()
+  }),
+  order_add: Joi.object({
+    order_table: Joi.number().required(),
+    order_menu_id: Joi.number().required(),
+    order_description: Joi.string()
+      .allow("")
+      .optional(),
+    order_quantity: Joi.number().required(),
+    order_added_by: Joi.number().required(),
+    customer_id: Joi.number().required()
+  }),
+  order_edit: Joi.object({
+    order_table: Joi.number().required(),
+    order_menu_id: Joi.number().required(),
+    order_description: Joi.string()
+      .allow("")
+      .optional(),
+    order_quantity: Joi.number().required(),
+    customer_id: Joi.number().required()
   })
 };
