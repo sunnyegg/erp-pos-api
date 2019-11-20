@@ -11,6 +11,6 @@ Route.put("/user/:id", auth.ensureToken, usersController.updateUser);
 Route.delete("/user/:id", auth.ensureToken, usersController.deleteUser);
 Route.post("/user/register", usersController.registerUser);
 Route.post("/user/login", usersController.loginUser);
-Route.post("/user/logout/:id", auth.ensureToken, usersController.logoutUser);
+Route.post("/user/logout/:id", usersController.logoutUser);
 
 module.exports = Route;
