@@ -1,0 +1,1161 @@
+{
+	"info": {
+		"_postman_id": "2e594e18-3773-4f52-a138-435aebcd1aa3",
+		"name": "Erp POS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "REGISTER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_name",
+									"value": "tresna",
+									"type": "text"
+								},
+								{
+									"key": "user_password",
+									"value": "tresna",
+									"type": "text"
+								},
+								{
+									"key": "user_type",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_name",
+									"value": "adila",
+									"type": "text"
+								},
+								{
+									"key": "user_password",
+									"value": "adila12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGOUT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MDkzMTY1LCJleHAiOjE1NzQwOTQ5NjV9.kIhFlInW8OJNQ6tczTHF5PBGpUng4NPoF6JHxioCItU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_name",
+									"value": "adila",
+									"type": "text"
+								},
+								{
+									"key": "user_password",
+									"value": "adila12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/user/logout/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"user",
+								"logout",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USERS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MDkzMzM0LCJleHAiOjE1NzQwOTUxMzR9.jgg6xMpO2X7zJ83aHFnXpIuS-9ASB2k3_03ssWPHza0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_name",
+									"value": "adila",
+									"type": "text"
+								},
+								{
+									"key": "user_password",
+									"value": "adila",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USERS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MDg4NzA0LCJleHAiOjE1NzQwOTA1MDR9.W8XsCrV0JxIBDQZdplbbJ4V6D5kjlXE9IpOABZ1CyOc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_name",
+									"value": "adila",
+									"type": "text"
+								},
+								{
+									"key": "user_password",
+									"value": "adila12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MDg4NzA0LCJleHAiOjE1NzQwOTA1MDR9.W8XsCrV0JxIBDQZdplbbJ4V6D5kjlXE9IpOABZ1CyOc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_name",
+									"value": "adila",
+									"type": "text"
+								},
+								{
+									"key": "user_password",
+									"value": "adila12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Menu",
+			"item": [
+				{
+					"name": "GET ALL MENU",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MTQyOTg1LCJleHAiOjE1NzQxNTczODV9.Dj-GxTSSibW2ueZJHU8EhYu82FsZeKKQweFnykNc3og",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3333/api/menu?search=nasi",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"menu"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "nasi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET MENU BY ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MDkwNjc2LCJleHAiOjE1NzQwOTI0NzZ9.ISDQTEJUyjpySZgcWQo8J0XT6Z8QrHfbTeJrmF45cFY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3333/api/menu/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"menu",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD NEW MENU",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MDk0NTY0LCJleHAiOjE1NzQwOTYzNjR9.cH903UjmuoGPC8qju9EC4jyq0VxmPBTcJLdLbjq0UQk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "menu_name",
+									"value": "Es Teh Tawar",
+									"type": "text"
+								},
+								{
+									"key": "menu_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "menu_category",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "menu_price",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "menu_quantity",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "menu_added_by",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/menu/add",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"menu",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EDIT MENU BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MDk0NTY0LCJleHAiOjE1NzQwOTYzNjR9.cH903UjmuoGPC8qju9EC4jyq0VxmPBTcJLdLbjq0UQk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "menu_name",
+									"value": "Es Teh Manis",
+									"type": "text"
+								},
+								{
+									"key": "menu_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "menu_category",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "menu_price",
+									"value": "3000",
+									"type": "text"
+								},
+								{
+									"key": "menu_quantity",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "menu_updated_by",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/menu/edit/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"menu",
+								"edit",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE MENU",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MDkwNjc2LCJleHAiOjE1NzQwOTI0NzZ9.ISDQTEJUyjpySZgcWQo8J0XT6Z8QrHfbTeJrmF45cFY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "menu_name",
+									"value": "Nasi Goreng",
+									"type": "text"
+								},
+								{
+									"key": "menu_description",
+									"value": "Nasi Goreng ena yahud",
+									"type": "text"
+								},
+								{
+									"key": "menu_category",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "menu_price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "menu_quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "menu_added_by",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/menu/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"menu",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "GET ALL ORDERS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MTQyOTg1LCJleHAiOjE1NzQxNTczODV9.Dj-GxTSSibW2ueZJHU8EhYu82FsZeKKQweFnykNc3og",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3333/api/order",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD NEW ORDER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MTM5Mjg5LCJleHAiOjE1NzQxNDEwODl9.j3zJiEOfbDGO9OVTYY4dOOmn8dV3QvxvcCCQqhDyu-Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "order_table",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "order_menu_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "order_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "order_quantity",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "order_added_by",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/order",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EDIT ORDER BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MTM5Mjg5LCJleHAiOjE1NzQxNDEwODl9.j3zJiEOfbDGO9OVTYY4dOOmn8dV3QvxvcCCQqhDyu-Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "order_table",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "order_menu_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "order_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "order_quantity",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/order/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"order",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHECKOUT ORDER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MTQxMzczLCJleHAiOjE1NzQxNDMxNzN9.DqA-EV5W8w-hCip-8-3A4UKP2D4G1AY83zHXj9LnziE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "order_menu_status",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "order_updated_by",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/order/checkout/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"order",
+								"checkout",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE ORDER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MTM5Mjg5LCJleHAiOjE1NzQxNDEwODl9.j3zJiEOfbDGO9OVTYY4dOOmn8dV3QvxvcCCQqhDyu-Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "order_table",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "order_menu_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "order_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "order_quantity",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/order/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"order",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fd7f8818-28fb-4f8b-973a-6d5efd3698c4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ac0adab-1c83-4497-97d9-95dbb4c58517",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "GET ALL TRANSACTIONS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MTQyOTg1LCJleHAiOjE1NzQxNTczODV9.Dj-GxTSSibW2ueZJHU8EhYu82FsZeKKQweFnykNc3og",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "order_table",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "order_menu_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "order_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "order_quantity",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "order_added_by",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD NEW TRANSACTION",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MTQxMzczLCJleHAiOjE1NzQxNDMxNzN9.DqA-EV5W8w-hCip-8-3A4UKP2D4G1AY83zHXj9LnziE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "transaction_order_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fd7f8818-28fb-4f8b-973a-6d5efd3698c4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ac0adab-1c83-4497-97d9-95dbb4c58517",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "ADD CUSTOMER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkaWxhIiwiaWF0IjoxNTc0MTM1NTQyLCJleHAiOjE1NzQxMzczNDJ9.n9SlSqn0lscCzt03slIQfzZ5iYzZDwECcOQjgBrzqZc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_name",
+									"value": "Adila",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/api/customer",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
